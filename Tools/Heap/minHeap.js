@@ -97,15 +97,16 @@ class MinHeap {
     }
 }
 
+// 导出class
+module.exports = { MinHeap };
+// console.log('\n=== 最小堆测试 ===');
+// const minHeap = new MinHeap();
 
-console.log('\n=== 最小堆测试 ===');
-const minHeap = new MinHeap();
+// // 使用buildHeap方法
+// minHeap.buildHeap([4, 1, 3, 2, 16, 9, 10, 14, 8, 7]);
+// console.log('构建最小堆:', minHeap.heap);
 
-// 使用buildHeap方法
-minHeap.buildHeap([4, 1, 3, 2, 16, 9, 10, 14, 8, 7]);
-console.log('构建最小堆:', minHeap.heap);
-
-console.log('\n提取最小元素:');
-while (!minHeap.isEmpty()) {
-    console.log('提取:', minHeap.extractMin(), '剩余:', minHeap.heap);
-}
+// console.log('\n提取最小元素:');
+// while (!minHeap.isEmpty()) {
+//     console.log('提取:', minHeap.extractMin(), '剩余:', minHeap.heap);
+// }

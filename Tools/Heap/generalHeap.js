@@ -83,25 +83,28 @@ class Heap {
     }
 }
 
-console.log('\n=== 自定义比较函数的堆 ===');
+// 导出class
+module.exports = { Heap };
 
-// 创建最大堆（通过自定义比较函数）
-const customMaxHeap = new Heap((a, b) => b - a);
-[3, 1, 4, 1, 5, 9, 2, 6].forEach(num => customMaxHeap.insert(num));
-console.log('自定义最大堆:', customMaxHeap.heap);
+// console.log('\n=== 自定义比较函数的堆 ===');
 
-// 创建对象堆（按优先级排序）
-const priorityHeap = new Heap((a, b) => a.priority - b.priority);
-const tasks = [
-    { name: 'Task A', priority: 3 },
-    { name: 'Task B', priority: 1 },
-    { name: 'Task C', priority: 2 },
-    { name: 'Task D', priority: 5 }
-];
+// // 创建最大堆（通过自定义比较函数）
+// const customMaxHeap = new Heap((a, b) => b - a);
+// [3, 1, 4, 1, 5, 9, 2, 6].forEach(num => customMaxHeap.insert(num));
+// console.log('自定义最大堆:', customMaxHeap.heap);
 
-tasks.forEach(task => priorityHeap.insert(task));
-console.log('优先级堆:');
-while (!priorityHeap.isEmpty()) {
-    const task = priorityHeap.extract();
-    console.log(`执行: ${task.name} (优先级: ${task.priority})`);
-}
+// // 创建对象堆（按优先级排序）
+// const priorityHeap = new Heap((a, b) => a.priority - b.priority);
+// const tasks = [
+//     { name: 'Task A', priority: 3 },
+//     { name: 'Task B', priority: 1 },
+//     { name: 'Task C', priority: 2 },
+//     { name: 'Task D', priority: 5 }
+// ];
+
+// tasks.forEach(task => priorityHeap.insert(task));
+// console.log('优先级堆:');
+// while (!priorityHeap.isEmpty()) {
+//     const task = priorityHeap.extract();
+//     console.log(`执行: ${task.name} (优先级: ${task.priority})`);
+// }

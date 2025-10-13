@@ -1,6 +1,8 @@
+// 导入最大堆实现
+const { MaxHeap } = require('../Tools/Heap');
+
 // ==================== 问题3: 课程表III (LeetCode 630) ====================
 console.log('\n=== 问题3: 课程表III - 最多能修多少门课 ===');
-
 /**
  * 问题描述：
  * 这里有 n 门不同的在线课程，按从 1 到 n 编号。
@@ -22,11 +24,31 @@ function scheduleCourse(courses) {
     courses.sort((a, b) => a[1] - b[1]);
 
     // 使用最大堆存储已选课程的持续时间
-    const maxHeap = [];
+    const maxHeap = new MaxHeap();
+
     let currentTime = 0;
 
-    // 最大堆的辅助函数
-    function heapifyUp(heap, index) {
+    for (const [duration, lastDay] of courses) {
+        currentTime += duration
+        maxHeap.push(duration)
         
+        // 如果超时了，移除用时最长的课程
+        if (currentTime > lastDay) {
+            const maxDuration = maxHeap.pop()
+            currentTime -= maxDuration
+        }
+
     }
+
+    return maxHeap.size()
 }
+
+// 测试课程表III
+const courses1 = [[100,200],[200,1300],[1000,1250],[2000,3299]];
+const courses2 = [[1,2],[2,3]];
+
+console.log('测试数据1:', courses1);
+console.log('最多可修课程数:', scheduleCourse(courses1));
+
+console.log('\n测试数据2:', courses2);
+console.log('最多可修课程数:', scheduleCourse(courses2));

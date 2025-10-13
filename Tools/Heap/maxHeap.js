@@ -6,6 +6,7 @@
 console.log('=== 堆数据结构的原理和实现 ===');
 
 // ==================== 最大堆实现 ====================
+// 导出最大堆类
 class MaxHeap {
     constructor() {
         this.heap = [];
@@ -72,13 +73,13 @@ class MaxHeap {
     }
 
     // 插入元素
-    insert(value) {
+    push(value) {
         this.heap.push(value);
         this.heapifyUp();
     }
 
     // 删除并返回最大元素
-    extractMax() {
+    pop() {
         if (this.heap.length === 0) return null;
         if (this.heap.length === 1) return this.heap.pop();
         
@@ -141,60 +142,59 @@ class MaxHeap {
     }
 }
 
+// 导出class
+module.exports = { MaxHeap };
+
+// // ==================== 测试和示例 ====================
+// console.log('\n=== 最大堆测试 ===');
+// const maxHeap = new MaxHeap();
+
+// // 插入元素
+// [4, 1, 3, 2, 16, 9, 10, 14, 8, 7].forEach(num => {
+//     maxHeap.push(num);
+//     console.log(`插入 ${num}:`, maxHeap.heap);
+// });
+
+// maxHeap.print();
+
+// console.log('\n提取最大元素:');
+// while (!maxHeap.isEmpty()) {
+//     console.log('提取:', maxHeap.pop(), '剩余:', maxHeap.heap);
+// }
 
 
 
 
-// ==================== 测试和示例 ====================
-console.log('\n=== 最大堆测试 ===');
-const maxHeap = new MaxHeap();
+// // ==================== 堆的应用场景 ====================
+// console.log('\n=== 堆的应用场景 ===');
+// console.log(`
+// 堆的主要应用：
 
-// 插入元素
-[4, 1, 3, 2, 16, 9, 10, 14, 8, 7].forEach(num => {
-    maxHeap.insert(num);
-    console.log(`插入 ${num}:`, maxHeap.heap);
-});
+// 1. 优先队列
+//    - 任务调度
+//    - 事件处理
+//    - Dijkstra算法
 
-maxHeap.print();
+// 2. 堆排序
+//    - 时间复杂度 O(n log n)
+//    - 原地排序
+//    - 不稳定排序
 
-console.log('\n提取最大元素:');
-while (!maxHeap.isEmpty()) {
-    console.log('提取:', maxHeap.extractMax(), '剩余:', maxHeap.heap);
-}
+// 3. 找第K大/小元素
+//    - Top K问题
+//    - 中位数查找
 
+// 4. 合并K个有序链表/数组
 
+// 5. 图算法
+//    - Prim最小生成树
+//    - Dijkstra最短路径
 
+// 时间复杂度：
+// - 插入: O(log n)
+// - 删除顶部: O(log n)
+// - 查看顶部: O(1)
+// - 构建堆: O(n)
 
-// ==================== 堆的应用场景 ====================
-console.log('\n=== 堆的应用场景 ===');
-console.log(`
-堆的主要应用：
-
-1. 优先队列
-   - 任务调度
-   - 事件处理
-   - Dijkstra算法
-
-2. 堆排序
-   - 时间复杂度 O(n log n)
-   - 原地排序
-   - 不稳定排序
-
-3. 找第K大/小元素
-   - Top K问题
-   - 中位数查找
-
-4. 合并K个有序链表/数组
-
-5. 图算法
-   - Prim最小生成树
-   - Dijkstra最短路径
-
-时间复杂度：
-- 插入: O(log n)
-- 删除顶部: O(log n)
-- 查看顶部: O(1)
-- 构建堆: O(n)
-
-空间复杂度:O(n)
-`);
+// 空间复杂度:O(n)
+// `);

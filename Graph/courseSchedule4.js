@@ -40,9 +40,6 @@ function checkIfPrerequisite_DFS(numCourses, prerequisites, queries) {
             // 添加传递依赖
             for (const reach of reachable[next]) {
                 reachable[node].add(reach);
-                if (reachable[4].size > 0) {
-                    console.log(reachable[4])
-                } 
             }
             
         }
